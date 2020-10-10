@@ -144,6 +144,57 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-剑指offer 成功运行的代码及笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="剑指offer数据结构题目笔记"><a href="#剑指offer数据结构题目笔记" class="headerlink" title="剑指offer数据结构题目笔记"></a>剑指offer数据结构题目笔记</h1><h2 id="5-用两个栈实现队列"><a href="#5-用两个栈实现队列" class="headerlink" title="5-用两个栈实现队列"></a>5-用两个栈实现队列</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.acceptStack = [] <span class="comment">#创建空接受栈</span></span><br><span class="line">        self.outputStack = [] <span class="comment">#创建空输出栈</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">push</span>(<span class="params">self, node</span>):</span> <span class="comment">#输入</span></span><br><span class="line">        self.acceptStack.append(node) <span class="comment">#将元素存入接受栈</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pop</span>(<span class="params">self</span>):</span> <span class="comment">#弹出</span></span><br><span class="line">        <span class="keyword">if</span> self.outputStack == []: <span class="comment">#如果输出栈是空</span></span><br><span class="line">            <span class="keyword">while</span> self.acceptStack: <span class="comment">#只要接收栈不是空</span></span><br><span class="line">                self.outputStack.append(self.acceptStack.pop())<span class="comment">#就一直弹出接受栈的内容到输出栈</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> self.outputStack !=[]:  <span class="comment">#如果输出栈不空</span></span><br><span class="line">            <span class="keyword">return</span> self.outputStack.pop() <span class="comment">#则返回输出栈弹出的结果</span></span><br><span class="line">        <span class="keyword">else</span>: <span class="comment">#如果输出栈空</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span> <span class="comment">#不返回</span></span><br><span class="line">        <span class="comment"># return xx</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="6-旋转数组的最小数字"><a href="#6-旋转数组的最小数字" class="headerlink" title="6-旋转数组的最小数字"></a>6-旋转数组的最小数字</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 二分查找法</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bSearch</span>(<span class="params">array, target</span>):</span></span><br><span class="line"></span><br><span class="line">    left = <span class="number">0</span> <span class="comment"># 左指针</span></span><br><span class="line">    right = len(array) - <span class="number">1</span> <span class="comment"># 右指针</span></span><br><span class="line">    <span class="keyword">while</span> left &lt;= right:</span><br><span class="line">        <span class="comment"># 101 = 5 =&gt; 10 =2</span></span><br><span class="line">        <span class="comment"># 1100 = 12 =&gt; 110 = 6</span></span><br><span class="line">        mid = (left + right) // <span class="number">2</span> <span class="comment"># 向取整数（弱智方法）</span></span><br><span class="line">        <span class="comment">#mid = (left + right) &gt;&gt; 1 # 移位（除2取整数）</span></span><br><span class="line">        <span class="keyword">if</span> array[mid] == target:</span><br><span class="line">            <span class="keyword">return</span> mid</span><br><span class="line">        <span class="keyword">elif</span> array[mid] &lt; target:</span><br><span class="line">            left = mid + <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            right = mid - <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    ret = bSearch([<span class="number">1</span> ,<span class="number">2</span> ,<span class="number">3</span> ,<span class="number">4</span> ,<span class="number">5</span> ,<span class="number">6</span> ,<span class="number">7</span> ,<span class="number">8</span> ,<span class="number">9</span> ,<span class="number">10</span>], <span class="number">1</span>)</span><br><span class="line">    print(ret)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/10/10/%E5%89%91%E6%8C%87offer%20%E6%88%90%E5%8A%9F%E8%BF%90%E8%A1%8C%E7%9A%84%E4%BB%A3%E7%A0%81%E5%8F%8A%E7%AC%94%E8%AE%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-markdown基本语法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -190,7 +241,7 @@
 </blockquote>
 </blockquote>
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><blockquote>
-<p>空行<br>Tab+代码</p>
+<p>`*3 + 语言类别<br>Tab+代码</p>
 </blockquote>
 
       
