@@ -144,230 +144,27 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-剑指offer 成功运行的代码及笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="剑指offer数据结构题目笔记"><a href="#剑指offer数据结构题目笔记" class="headerlink" title="剑指offer数据结构题目笔记"></a>剑指offer数据结构题目笔记</h1><h2 id="5-用两个栈实现队列"><a href="#5-用两个栈实现队列" class="headerlink" title="5-用两个栈实现队列"></a>5-用两个栈实现队列</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.acceptStack = [] <span class="comment">#创建空接受栈</span></span><br><span class="line">        self.outputStack = [] <span class="comment">#创建空输出栈</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">push</span>(<span class="params">self, node</span>):</span> <span class="comment">#输入</span></span><br><span class="line">        self.acceptStack.append(node) <span class="comment">#将元素存入接受栈</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pop</span>(<span class="params">self</span>):</span> <span class="comment">#弹出</span></span><br><span class="line">        <span class="keyword">if</span> self.outputStack == []: <span class="comment">#如果输出栈是空</span></span><br><span class="line">            <span class="keyword">while</span> self.acceptStack: <span class="comment">#只要接收栈不是空</span></span><br><span class="line">                self.outputStack.append(self.acceptStack.pop())<span class="comment">#就一直弹出接受栈的内容到输出栈</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> self.outputStack !=[]:  <span class="comment">#如果输出栈不空</span></span><br><span class="line">            <span class="keyword">return</span> self.outputStack.pop() <span class="comment">#则返回输出栈弹出的结果</span></span><br><span class="line">        <span class="keyword">else</span>: <span class="comment">#如果输出栈空</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span> <span class="comment">#不返回</span></span><br><span class="line">        <span class="comment"># return xx</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="6-旋转数组的最小数字"><a href="#6-旋转数组的最小数字" class="headerlink" title="6-旋转数组的最小数字"></a>6-旋转数组的最小数字</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 二分查找法</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bSearch</span>(<span class="params">array, target</span>):</span></span><br><span class="line"></span><br><span class="line">    left = <span class="number">0</span> <span class="comment"># 左指针</span></span><br><span class="line">    right = len(array) - <span class="number">1</span> <span class="comment"># 右指针</span></span><br><span class="line">    <span class="keyword">while</span> left &lt;= right:</span><br><span class="line">        <span class="comment"># 101 = 5 =&gt; 10 =2</span></span><br><span class="line">        <span class="comment"># 1100 = 12 =&gt; 110 = 6</span></span><br><span class="line">        mid = (left + right) // <span class="number">2</span> <span class="comment"># 向取整数（弱智方法）</span></span><br><span class="line">        <span class="comment">#mid = (left + right) &gt;&gt; 1 # 移位（除2取整数）</span></span><br><span class="line">        <span class="keyword">if</span> array[mid] == target:</span><br><span class="line">            <span class="keyword">return</span> mid</span><br><span class="line">        <span class="keyword">elif</span> array[mid] &lt; target:</span><br><span class="line">            left = mid + <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            right = mid - <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    ret = bSearch([<span class="number">1</span> ,<span class="number">2</span> ,<span class="number">3</span> ,<span class="number">4</span> ,<span class="number">5</span> ,<span class="number">6</span> ,<span class="number">7</span> ,<span class="number">8</span> ,<span class="number">9</span> ,<span class="number">10</span>], <span class="number">1</span>)</span><br><span class="line">    print(ret)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/10/10/%E5%89%91%E6%8C%87offer%20%E6%88%90%E5%8A%9F%E8%BF%90%E8%A1%8C%E7%9A%84%E4%BB%A3%E7%A0%81%E5%8F%8A%E7%AC%94%E8%AE%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-markdown基本语法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/21/markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">markdown基本语法</a>
-    </h1>
-  
-
-        
-        <a href="/2020/09/21/markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2020-09-21T08:14:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>主要熟悉一下markdown的基本语法，方便个人网站使用。</p>
-</blockquote>
-<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><blockquote>
-<p>用‘#’+空格表示标题，‘#’的数量依次表示标题的层数。</p>
-</blockquote>
-<h2 id="强调重点"><a href="#强调重点" class="headerlink" title="强调重点"></a>强调重点</h2><blockquote>
-<p>使用‘*文字*’表示斜体<br>使用‘**文字**’表示粗体</p>
-</blockquote>
-<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><blockquote>
-<p>使用+表示无序列表<br>使用 数字+‘.’ 表示有序列表</p>
-</blockquote>
-<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><blockquote>
-<p>使用***表示分割线</p>
-</blockquote>
-<h2 id="链接或图片"><a href="#链接或图片" class="headerlink" title="链接或图片"></a>链接或图片</h2><blockquote>
-<p>[链接显示名称](链接)<br>图片在最前面加上!</p>
-</blockquote>
-<h2 id="添加代码"><a href="#添加代码" class="headerlink" title="添加代码"></a>添加代码</h2><h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>&gt;<br>&gt;&gt;</p>
-<blockquote>
-<p>区块引用</p>
-<blockquote>
-<p>嵌套引用</p>
-</blockquote>
-</blockquote>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><blockquote>
-<p>`*3 + 语言类别<br>Tab+代码</p>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/21/markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/20/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2020/09/20/hello-world/" class="archive-article-date">
-  	<time datetime="2020-09-20T08:03:10.112Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/20/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post- 机器学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/10/12/%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">机器学习笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2020/10/12/%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
+  	<time datetime="2020-10-12T08:14:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-12</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<p>title: markdown基本语法<br>date: 2020-10-12 10:14:38</p>
-<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><h1 id="第二天"><a href="#第二天" class="headerlink" title="第二天"></a>第二天</h1><ul>
+        <ul>
 <li><p>数据集的划分（train_test_split）</p>
 <ul>
 <li>训练集 (x_train,x_test)</li>
@@ -508,7 +305,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/25/%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/10/12/%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">展开全文 >></a>
         </p>
       
 
@@ -541,11 +338,26 @@
     <article id="post-机器学习算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/10/12/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/">机器学习算法</a>
+    </h1>
+  
+
+        
+        <a href="/2020/10/12/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2020-10-12T08:14:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-12</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<p>title: markdown基本语法<br>date: 2020-10-12 10:14:38</p>
-<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><h1 id="第一章-数据集"><a href="#第一章-数据集" class="headerlink" title="第一章 数据集"></a>第一章 数据集</h1><h2 id="1-数据类型"><a href="#1-数据类型" class="headerlink" title="1.数据类型"></a>1.数据类型</h2><ul>
+        <blockquote>
+</blockquote>
+<h1 id="第一章-数据集"><a href="#第一章-数据集" class="headerlink" title="第一章 数据集"></a>第一章 数据集</h1><h2 id="1-数据类型"><a href="#1-数据类型" class="headerlink" title="1.数据类型"></a>1.数据类型</h2><ul>
 <li>离散型数据（分类）<ul>
 <li>由记录不同类别个体的数目所得到的数据，<code>称为计数数据</code>，所有这些数据全部都是整数，而且不能再细分，也不能进一步提高他们的精确度</li>
 </ul>
@@ -1231,7 +1043,223 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/25/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/10/12/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-剑指offer 成功运行的代码及笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="剑指offer数据结构题目笔记"><a href="#剑指offer数据结构题目笔记" class="headerlink" title="剑指offer数据结构题目笔记"></a>剑指offer数据结构题目笔记</h1><h2 id="5-用两个栈实现队列"><a href="#5-用两个栈实现队列" class="headerlink" title="5-用两个栈实现队列"></a>5-用两个栈实现队列</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.acceptStack = [] <span class="comment">#创建空接受栈</span></span><br><span class="line">        self.outputStack = [] <span class="comment">#创建空输出栈</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">push</span>(<span class="params">self, node</span>):</span> <span class="comment">#输入</span></span><br><span class="line">        self.acceptStack.append(node) <span class="comment">#将元素存入接受栈</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pop</span>(<span class="params">self</span>):</span> <span class="comment">#弹出</span></span><br><span class="line">        <span class="keyword">if</span> self.outputStack == []: <span class="comment">#如果输出栈是空</span></span><br><span class="line">            <span class="keyword">while</span> self.acceptStack: <span class="comment">#只要接收栈不是空</span></span><br><span class="line">                self.outputStack.append(self.acceptStack.pop())<span class="comment">#就一直弹出接受栈的内容到输出栈</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> self.outputStack !=[]:  <span class="comment">#如果输出栈不空</span></span><br><span class="line">            <span class="keyword">return</span> self.outputStack.pop() <span class="comment">#则返回输出栈弹出的结果</span></span><br><span class="line">        <span class="keyword">else</span>: <span class="comment">#如果输出栈空</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span> <span class="comment">#不返回</span></span><br><span class="line">        <span class="comment"># return xx</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="6-旋转数组的最小数字"><a href="#6-旋转数组的最小数字" class="headerlink" title="6-旋转数组的最小数字"></a>6-旋转数组的最小数字</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 二分查找法</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bSearch</span>(<span class="params">array, target</span>):</span></span><br><span class="line"></span><br><span class="line">    left = <span class="number">0</span> <span class="comment"># 左指针</span></span><br><span class="line">    right = len(array) - <span class="number">1</span> <span class="comment"># 右指针</span></span><br><span class="line">    <span class="keyword">while</span> left &lt;= right:</span><br><span class="line">        <span class="comment"># 101 = 5 =&gt; 10 =2</span></span><br><span class="line">        <span class="comment"># 1100 = 12 =&gt; 110 = 6</span></span><br><span class="line">        mid = (left + right) // <span class="number">2</span> <span class="comment"># 向取整数（弱智方法）</span></span><br><span class="line">        <span class="comment">#mid = (left + right) &gt;&gt; 1 # 移位（除2取整数）</span></span><br><span class="line">        <span class="keyword">if</span> array[mid] == target:</span><br><span class="line">            <span class="keyword">return</span> mid</span><br><span class="line">        <span class="keyword">elif</span> array[mid] &lt; target:</span><br><span class="line">            left = mid + <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            right = mid - <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    ret = bSearch([<span class="number">1</span> ,<span class="number">2</span> ,<span class="number">3</span> ,<span class="number">4</span> ,<span class="number">5</span> ,<span class="number">6</span> ,<span class="number">7</span> ,<span class="number">8</span> ,<span class="number">9</span> ,<span class="number">10</span>], <span class="number">1</span>)</span><br><span class="line">    print(ret)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/10/10/%E5%89%91%E6%8C%87offer%20%E6%88%90%E5%8A%9F%E8%BF%90%E8%A1%8C%E7%9A%84%E4%BB%A3%E7%A0%81%E5%8F%8A%E7%AC%94%E8%AE%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-markdown基本语法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/21/markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">markdown基本语法</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/21/markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2020-09-21T08:14:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>主要熟悉一下markdown的基本语法，方便个人网站使用。</p>
+</blockquote>
+<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><blockquote>
+<p>用‘#’+空格表示标题，‘#’的数量依次表示标题的层数。</p>
+</blockquote>
+<h2 id="强调重点"><a href="#强调重点" class="headerlink" title="强调重点"></a>强调重点</h2><blockquote>
+<p>使用‘*文字*’表示斜体<br>使用‘**文字**’表示粗体</p>
+</blockquote>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><blockquote>
+<p>使用+表示无序列表<br>使用 数字+‘.’ 表示有序列表</p>
+</blockquote>
+<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><blockquote>
+<p>使用***表示分割线</p>
+</blockquote>
+<h2 id="链接或图片"><a href="#链接或图片" class="headerlink" title="链接或图片"></a>链接或图片</h2><blockquote>
+<p>[链接显示名称](链接)<br>图片在最前面加上!</p>
+</blockquote>
+<h2 id="添加代码"><a href="#添加代码" class="headerlink" title="添加代码"></a>添加代码</h2><h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p>&gt;<br>&gt;&gt;</p>
+<blockquote>
+<p>区块引用</p>
+<blockquote>
+<p>嵌套引用</p>
+</blockquote>
+</blockquote>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><blockquote>
+<p>`*3 + 语言类别<br>Tab+代码</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/21/markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/20/hello-world/">Hello World</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/20/hello-world/" class="archive-article-date">
+  	<time datetime="2020-09-20T08:03:10.112Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/20/hello-world/">展开全文 >></a>
         </p>
       
 
