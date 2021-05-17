@@ -136,7 +136,7 @@
 <a id="pagenext" href="/21.undefined.2020-Coding/markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95" class="article-next" title="markdown基本语法"><i class="icon-arrow-right"></i></a>
 
 
-<a id="pageprev" href="/12.undefined.2020-Machine%20Learning/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0" class="article-prev" title="Êú∫Âô®Â≠¶‰π†Á¨îËÆ∞"><i class="icon-arrow-left"></i></a>
+<a id="pageprev" href="/12.undefined.2020-Machine%20Learning/CNN_in_a_minute" class="article-prev" title="CNN in a minute"><i class="icon-arrow-left"></i></a>
 
 
 
@@ -147,9 +147,9 @@
     new Gitalk({
         clientID: "7fbe80427f54741e289f",
         clientSecret: "f34ed5fd92e54c9000bd37ba951948cb939deff5",
-        repo: "sanonz.github.io",
-        owner: "sanonz",
-        admin: ["sanonz"],
+        repo: "medicinely.github.io",
+        owner: "medicinely",
+        admin: ["medicinely"],
         id: "726dc883be409f7ec7a53e0b3361bcfe",
         distractionFreeMode: true,
         title: "机器学习笔记",

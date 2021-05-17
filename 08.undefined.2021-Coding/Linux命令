@@ -206,7 +206,7 @@
 <a id="pagenext" href="/31.undefined.2021-README" class="article-next" title=""><i class="icon-arrow-right"></i></a>
 
 
-<a id="pageprev" href="/09.undefined.2021-Coding/Inertial_Navigation_Lab" class="article-prev" title=""><i class="icon-arrow-left"></i></a>
+<a id="pageprev" href="/17.undefined.2021-home" class="article-prev" title="home"><i class="icon-arrow-left"></i></a>
 
 
 
@@ -217,9 +217,9 @@
     new Gitalk({
         clientID: "7fbe80427f54741e289f",
         clientSecret: "f34ed5fd92e54c9000bd37ba951948cb939deff5",
-        repo: "sanonz.github.io",
-        owner: "sanonz",
-        admin: ["sanonz"],
+        repo: "medicinely.github.io",
+        owner: "medicinely",
+        admin: ["medicinely"],
         id: "2fa7a3555dc909a74890507af9679607",
         distractionFreeMode: true,
         title: "",

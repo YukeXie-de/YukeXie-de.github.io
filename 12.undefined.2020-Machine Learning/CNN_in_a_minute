@@ -176,7 +176,7 @@
 
 
 
-<a id="pagenext" href="/12.undefined.2020-Machine%20Learning/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0" class="article-next" title="Êú∫Âô®Â≠¶‰π†Á¨îËÆ∞"><i class="icon-arrow-right"></i></a>
+<a id="pagenext" href="/25.undefined.2020-Coding/%E5%89%91%E6%8C%87offer%20%E6%88%90%E5%8A%9F%E8%BF%90%E8%A1%8C%E7%9A%84%E4%BB%A3%E7%A0%81%E5%8F%8A%E7%AC%94%E8%AE%B0" class="article-next" title="机器学习笔记"><i class="icon-arrow-right"></i></a>
 
 
 <a id="pageprev" href="/31.undefined.2021-README" class="article-prev" title=""><i class="icon-arrow-left"></i></a>
@@ -190,9 +190,9 @@
     new Gitalk({
         clientID: "7fbe80427f54741e289f",
         clientSecret: "f34ed5fd92e54c9000bd37ba951948cb939deff5",
-        repo: "sanonz.github.io",
-        owner: "sanonz",
-        admin: ["sanonz"],
+        repo: "medicinely.github.io",
+        owner: "medicinely",
+        admin: ["medicinely"],
         id: "33e0a4c38fa0d09980220c793df17429",
         distractionFreeMode: true,
         title: "CNN in a minute",
