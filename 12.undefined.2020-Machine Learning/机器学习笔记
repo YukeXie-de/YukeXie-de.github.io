@@ -7,10 +7,10 @@
 
     
 
-    <title>我的第一篇博客文章 | Yuke Xie</title>
+    <title>Êú∫Âô®Â≠¶‰π†Á¨îËÆ∞ | Yuke Xie</title>
     <meta name="author" content="Yuke Xie" />
     <meta name="keywords" content="" />
-    <meta name="description" content="" />
+    <meta name="description" content="Êï∞ÊçÆÈõÜÁöÑÂàíÂàÜÔºàtrain_test_splitÔº?ËÆ≠ÁªÉÈõ? (x_train,x_test)ÊµãËØïÈõ?(y_train,y_test)ËΩ¨Êç¢Âô®Âíå‰º∞ËÆ°Âô?ËΩ¨Êç¢Âô®ÔºàÈíàÂØπÁâπÂæÅÂ∑•Á®ã‰ΩøÁî®Ôº?ÂÆû‰æãÂå?fit_transformfittransform‰º∞ËÆ°Âô®ÔºàÂÆûÁé∞ÁÆóÊ≥ïapiÔº?fit(ËÆ≠ÁªÉÊï∞ÊçÆ)predicd ÔºàÈ¢ÑÊµãÊ" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
 
@@ -86,6 +86,8 @@
 
         
         
+        
+        
 
         
         <div class="author-meta">
@@ -139,15 +141,15 @@
     <header class="article-header">
         
         <h1 itemprop="name">
-            我的第一篇博客文章
+            Êú∫Âô®Â≠¶‰π†Á¨îËÆ∞
         </h1>
         
         <div class="article-meta clearfix">
-            <a class="article-date" href="http://medicinely.com/post/Tags.html">
+            <a class="article-date" href="http://medicinely.com/12.undefined.2020-Machine%20Learning/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">
     
     <i class="icon-calendar vm"></i>
     
-    <time class="vm" datetime="2020-09-20T08:14:38.000Z" itemprop="datePublished">20.09.2020</time>
+    <time class="vm" datetime="2020-10-12T08:14:38.000Z" itemprop="datePublished">12.10.2020</time>
 </a>
 
             
@@ -157,13 +159,146 @@
     
     <section class="article-body markdown-body">
         
-        <h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><p>内容</p>
-<h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><p>内容</p>
-<h2 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h2><p>内容</p>
+        <ul>
+<li><p>Êï∞ÊçÆÈõÜÁöÑÂàíÂàÜÔºàtrain_test_splitÔº?</p>
+<ul>
+<li>ËÆ≠ÁªÉÈõ? (x_train,x_test)</li>
+<li>ÊµãËØïÈõ?(y_train,y_test)</li>
+</ul>
+</li>
+<li><p>ËΩ¨Êç¢Âô®Âíå‰º∞ËÆ°Âô?</p>
+<ul>
+<li>ËΩ¨Êç¢Âô®ÔºàÈíàÂØπÁâπÂæÅÂ∑•Á®ã‰ΩøÁî®Ôº?<ul>
+<li>ÂÆû‰æãÂå?</li>
+<li>fit_transform</li>
+<li>fit</li>
+<li>transform</li>
+</ul>
+</li>
+<li>‰º∞ËÆ°Âô®ÔºàÂÆûÁé∞ÁÆóÊ≥ïapiÔº?<ul>
+<li>fit(ËÆ≠ÁªÉÊï∞ÊçÆ)</li>
+<li>predicd ÔºàÈ¢ÑÊµãÊµãËØïÈõÜÁöÑÁªìÊûúÔºâ</li>
+<li>scoreÔºàÂæóÂá∫ÂáÜÁ°ÆÁéáÔº?</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>ÂàÜÁ±ªÁÆóÊ≥ï</p>
+<ul>
+<li><strong>ÁõÆÊ†áÂÄºÊòØÁ¶ªÊï£Âû?</strong></li>
+<li><code>k-ËøëÈÇªÁÆóÊ≥ï</code><ul>
+<li>Ë∑ùÁ¶ªÂÖ¨Âºè</li>
+<li>‰ºòÁÇπ<ul>
+<li>ÁêÜËß£ÁÆÄÂçïÔºåÊòì‰∫éÂÆûÁé∞</li>
+</ul>
+</li>
+<li>Áº∫ÁÇπ<ul>
+<li>kÂÄºÂèñÂÄ?</li>
+<li>ÊÄßËÉΩÈóÆÈ¢òÔºà‰∏çÈÄÇÁî®Âú®Â§ßÈáèÁöÑÊï∞ÊçÆÈõÜÔºâ</li>
+</ul>
+</li>
+<li>Ë∂ÖÂèÇÊï∞Ôºök</li>
+<li>Êï∞ÊçÆÂ§ÑÁêÜÔºöÊ†áÂáÜÂåñ</li>
+</ul>
+</li>
+<li>Êú¥Á¥†Ë¥ùÂè∂ÊñØÁÆóÊ≥ïÔºàÁâπÂæÅÊù°‰ª∂Áã¨Á´ãÔº?<ul>
+<li>Ê¶ÇÁéáÂü∫Á°Ä<ul>
+<li>Êù°‰ª∂Ê¶ÇÁéá</li>
+<li>ËÅîÂêàÊ¶ÇÁéá</li>
+</ul>
+</li>
+<li>Ë¥ùÂè∂ÊñØÂÖ¨Âº?</li>
+<li>‰ºòÁÇπ<ul>
+<li>‰∏ªË¶ÅÂú®ÊñáÊú¨ÂàÜÁ±ª‰∏äÂ∫îÁî®</li>
+<li>ÂáÜÁ°ÆÁéáÊØîËæÉÈ´ò</li>
+</ul>
+</li>
+<li>Áº∫ÁÇπ<ul>
+<li>Êù°‰ª∂Áã¨Á´ã</li>
+<li>ÂéÜÂè≤Êï∞ÊçÆÁöÑÂáÜÁ°ÆÊÄßÔºàÂΩ±ÂìçÈùûÂ∏∏Â§ßÔºâ</li>
+</ul>
+</li>
+<li>Êï∞ÊçÆÂ§ÑÁêÜÔºöÊñáÊú¨ÁâπÂæÅÊäΩÂè?</li>
+</ul>
+</li>
+<li>ÂÜ≥Á≠ñÊ†?<ul>
+<li>‰ø°ÊÅØËÆ∫ÔºàÁêÜËß£Ôº?<ul>
+<li>‰ø°ÊÅØÁÜ?</li>
+<li>‰ø°ÊÅØÂ¢ûÁõä</li>
+<li>‰ø°ÊÅØÁÜµÂ§ßÂ∞èÂèòÂåñÂíå‰∏çÁ°ÆÂÆöÊÄßÁõ∏ÂÖ?</li>
+</ul>
+</li>
+<li>ÂàÜÁ±ª‰æùÊçÆ<ul>
+<li>‰ø°ÊÅØÂ¢ûÁõä</li>
+<li>‰ø°ÊÅØÂ¢ûÁõäÊØ?</li>
+<li>Âü∫Â∞ºÁ≥ªÊï∞ÔºàscikilearnÈªòËÆ§Ôº?</li>
+</ul>
+</li>
+<li>‰ºòÁÇπ<ul>
+<li>ÂáÜÁ°ÆÁéáÈ´ò</li>
+<li>ÈÄÇÁî®‰∫éÂêÑÁ±ªÊï∞Êç?</li>
+<li>ÂèØËß£ÈáäÊÄßÂº∫</li>
+</ul>
+</li>
+<li>Áº∫ÁÇπ<ul>
+<li>ËøáÊãüÂêàÔºàÊ†ëÂª∫Á´ãËøáÊ∑±Ôºâ</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>ÈöèÊú∫Ê£ÆÊûóÔºà‰∏ÄÁßçÈõÜÊàêÂ≠¶‰π†ÊñπÊ≥?:Â§ö‰∏™Áõ∏ÂêåÁöÑÂàÜÁ±ªÂô®ÁªÑÊàêÔº?<ul>
+<li>Âª∫Á´ãËøáÁ®ã</li>
+<li>‰ºòÁÇπ<ul>
+<li>ÂáÜÁ°ÆÁéáÈ´ò</li>
+<li>‰∏ç‰ºöËøáÊãüÂê?</li>
+<li>ÂØπÂ§ßÊï∞ÊçÆÈõÜÈÄÇÁî®</li>
+</ul>
+</li>
+<li>Ë∂ÖÂèÇÊï?<ul>
+<li>Ê†ëÁöÑÊ∑±Â∫¶ÔºåÊ†ëÊï∞Èáè…</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>ÂàÜÁ±ªÁÆóÊ≥ïËØÑ‰º∞</p>
+<ul>
+<li>ÂáÜÁ°ÆÁé?</li>
+<li>Á≤æÁ°ÆÁéáÂíåÂè¨ÂõûÁé?<ul>
+<li>Ê∑∑Ê∑ÜÁü©Èòµ</li>
+<li>ÊØè‰∏™Á±ªÂà´Â∞±Êúâ</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Ê®°ÂûãË∞ÉÂèÇÊï?</p>
+<ul>
+<li><p>‰∫§ÂèâÈ™åËØÅÔºà‰∏∫‰∫ÜËÆ©Êï∞ÊçÆÈÉΩËÉΩËøõË°åÈ™åËØÅÂíåËÆ≠Áª? Ôº?</p>
+<ul>
+<li>ËÆ≠ÁªÉÊï∞ÊçÆÔºàËÆ≠Áª?+È™åËØÅÔº?</li>
+<li>KÊäò‰∫§ÂèâÈ™åËØ?</li>
+</ul>
+</li>
+<li><p>ÁΩëÊ†ºÊêúÁ¥¢</p>
+<ul>
+<li>ÊØè‰∏™ÂèÇÊï∞ÈÉΩ‰ºöÊü•ÁúãÊïàÊûúÔºåÂπ∂ÈÄâÂá∫ÊúÄ‰Ω≥ÁªÑÂê?</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
         
     </section>
 </article>
+
+
+
+<a id="pagenext" href="/25.undefined.2020-Coding/%E5%89%91%E6%8C%87offer%20%E6%88%90%E5%8A%9F%E8%BF%90%E8%A1%8C%E7%9A%84%E4%BB%A3%E7%A0%81%E5%8F%8A%E7%AC%94%E8%AE%B0" class="article-next" title="机器学习笔记"><i class="icon-arrow-right"></i></a>
+
+
+<a id="pageprev" href="/12.undefined.2020-Machine%20Learning/CNN_in_a_minute" class="article-prev" title="CNN in a minute"><i class="icon-arrow-left"></i></a>
 
 
 
@@ -177,10 +312,10 @@
         repo: "sanonz.github.io",
         owner: "sanonz",
         admin: ["sanonz"],
-        id: "c2a5ed7a917497cfd0e57052a6474a99",
+        id: "93424cac10c4d94ed9f088fb97a7dd23",
         distractionFreeMode: true,
-        title: "我的第一篇博客文章",
-        body: "http://medicinely.com/post/Tags.html",
+        title: "Êú∫Âô®Â≠¶‰π†Á¨îËÆ∞",
+        body: "http://medicinely.com/12.undefined.2020-Machine%20Learning/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0",
         labels: []
     }).render('comments');
     </script>
@@ -251,6 +386,33 @@
         });
     });
     </script>
+    
+        
+<script src="/js/scrollspy.min.js"></script>
+
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+
+        $(window).on('resize', function() {
+            var hw = $('#header').width();
+            var ww = $('#wrapper').width();
+            var space = ($(this).width() - hw - ww) / 2 / 2;
+
+            var pageprev = $('#pageprev');
+            var pagenext = $('#pagenext');
+            var avg = (pageprev.width() + pagenext.width()) / 2
+
+            if(space > avg) {
+                var len = space - avg / 2;
+                var styles = {position: 'fixed', top: '50%', marginTop: - (pageprev.width() + pagenext.width()) / 4}
+                pageprev.css($.extend({left: hw + len}, styles));
+                pagenext.css($.extend({right: len}, styles));
+            } else {
+                pageprev.removeAttr('style');
+                pagenext.removeAttr('style');
+            }
+        }).trigger('resize');
+        </script>
     
 
 </body>

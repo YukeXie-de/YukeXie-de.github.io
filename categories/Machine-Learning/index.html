@@ -7,7 +7,7 @@
 
     
 
-    <title>我的第一篇博客文章 | Yuke Xie</title>
+    <title>Category: machine-learning | Yuke Xie</title>
     <meta name="author" content="Yuke Xie" />
     <meta name="keywords" content="" />
     <meta name="description" content="" />
@@ -56,7 +56,7 @@
                 <span class="nav-text">Home</span>
             </a>
         
-            <a class="nav-item" href="/categories/machine-learning/">
+            <a class="nav-item active" href="/categories/machine-learning/">
                 <span class="nav-text">ML</span>
             </a>
         
@@ -134,32 +134,77 @@
 
         <div id="content" class="content">
             <div id="wrapper" class="wrapper" style="max-width: 800px">
-                <article class="article" itemscope itemprop="blogPost">
+                
+    <article class="article" itemscope itemprop="blogPost">
     
     <header class="article-header">
         
         <h1 itemprop="name">
-            我的第一篇博客文章
+            <a href="/12.undefined.2020-Machine%20Learning/CNN_in_a_minute">CNN in a minute</a>
         </h1>
         
         <div class="article-meta clearfix">
-            <a class="article-date" href="http://medicinely.com/post/Tags.html">
+            <a class="article-date" href="http://medicinely.com/categories/machine-learning/index.html">
     
     <i class="icon-calendar vm"></i>
     
-    <time class="vm" datetime="2020-09-20T08:14:38.000Z" itemprop="datePublished">20.09.2020</time>
+    <time class="vm" datetime="2020-10-12T08:14:38.000Z" itemprop="datePublished">12.10.2020</time>
 </a>
 
             
+<div class="article-tag-list">
+    <i class="icon-tag vm"></i>
+    <a class="article-tag-link" href="/tags/Machine-Learning/" rel="tag">Machine Learning</a>
+</div>
+
 
         </div>
     </header>
     
     <section class="article-body markdown-body">
         
-        <h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><p>内容</p>
-<h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><p>内容</p>
-<h2 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h2><p>内容</p>
+        <h1 id="CNN-in-a-minute"><a href="#CNN-in-a-minute" class="headerlink" title="CNN in a minute"></a>CNN in a minute</h1><h2 id="Machine-learning"><a href="#Machine-learning" class="headerlink" title="Machine learning"></a>Machine learning</h2><p>You get a set of data that has patterns inherent in it, and we a label to tell computer what those data is. And we have a computer figure out the patterns that match them to each other with the label. Then, my computer will have learned to recognize the data .</p>
+<h2 id="Neural-network"><a href="#Neural-network" class="headerlink" title="Neural network"></a>Neural network</h2><p>The aim of neural network is to figure out the function f with [128] parameters between input image[28x28] and output class[9]</p>
+<img src="https://tva1.sinaimg.cn/large/008i3skNgy1gqlal8t1fcj31mc0rq14t.jpg" alt="image-20210128032540226" style="zoom: 33%;" />
+
+<p>Set up a model with: input[28x28], parameters[128], output[10]:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">model = keras.Sequential([</span><br><span class="line">    keras.layers.Flatten(input_shape=(<span class="number">28</span>, <span class="number">28</span>)),</span><br><span class="line">    keras.layers.Dense(<span class="number">128</span>, activation=<span class="string">&#x27;relu&#x27;</span>),</span><br><span class="line">    keras.layers.Dense(<span class="number">10</span>, activation=<span class="string">&#x27;softmax&#x27;</span>)</span><br><span class="line">])</span><br></pre></td></tr></table></figure>
+
+<p>Set the loss function and optimizer function for our model. The loss function will evaluate the model, and optimizer will generate new parameters for function to see if it can do better:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">model.compile(optimizer=<span class="string">&#x27;adam&#x27;</span>,</span><br><span class="line">              loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=<span class="literal">True</span>),</span><br><span class="line">              metrics=[<span class="string">&#x27;accuracy&#x27;</span>])</span><br></pre></td></tr></table></figure>
+
+<p>So simply start training and evaluating:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">model.fit(train_images, train_labels, epochs=<span class="number">5</span>)</span><br><span class="line">test_loss, test_acc = model.evaluate(test_images, test_labels)</span><br><span class="line">prediction = model.predict(my_images)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Convolutional-neural-network"><a href="#Convolutional-neural-network" class="headerlink" title="Convolutional neural network"></a>Convolutional neural network</h2><p>Normal network is boring because it contains the only one feature in the centered of a image. So we carry out the Convolutional neural network.</p>
+<p>CNN is a method which filter the images before training the deep neural network. So, features within the images could then come to the forefront and you would then spot those features to identify something.</p>
+<img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn35dorpblj31vi0u04qp.jpg" alt="image-20210128022300953" style="zoom:33%;" />
+
+<p>For example:</p>
+<p>This filter will remove everything except vertical lines</p>
+<img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn1nd3o45fj31eg0ha1eg.jpg" alt="image-20210126191401730" style="zoom: 33%;" />
+
+<p>This filter removes almost everything except the horizontal lines</p>
+<img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn1nf2h0r8j31f00gs4k6.jpg" alt="image-20210126191602879" style="zoom:33%;" />
+
+<p>This carry out pooling.</p>
+<h4 id="Convolutional-layer"><a href="#Convolutional-layer" class="headerlink" title="Convolutional layer"></a>Convolutional layer</h4><p>Our image is fed into the convolutional layer, and we set a number of randomly initialized convolutional kernals(filters) will pass over the image. We can stack convolutional layers on top of each other, and try to learn from very abstract features (*the magic of CNN is the network learns the best filter during training).</p>
+<p>And the output of convolution will be fed into the next layer. In each epoch, it will figure out which filters gave the best signals to help match the images to their labels. This process is called feature extraction.</p>
+<p>We have a flattened input that’s fed into a dense layer that in turn fed into the final dense layer that is our output.</p>
+<h2 id="Terms"><a href="#Terms" class="headerlink" title="Terms"></a>Terms</h2><h4 id="Pooling"><a href="#Pooling" class="headerlink" title="Pooling"></a>Pooling</h4><p>Pooling is a way to subsample the image, in order to compress the image and enhance the features.</p>
+<p>Most common method: Max Pooling (2x2)</p>
+<img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn1nkxlhmvj30ic0aiaat.jpg" alt="image-20210126192143411" style="zoom:50%;" />
+
+<h4 id="Loss"><a href="#Loss" class="headerlink" title="Loss"></a>Loss</h4><p>A function to calculate how good the guess is.</p>
+<h4 id="Optimizer"><a href="#Optimizer" class="headerlink" title="Optimizer"></a>Optimizer</h4><p>To generate new parameters for the function between input image and output class. The combination of Loss and Optimizer will slowly get us closer to the prediction.</p>
+<h4 id="Activation-function-dense-layer"><a href="#Activation-function-dense-layer" class="headerlink" title="Activation function (dense layer)"></a>Activation function (dense layer)</h4><p><strong>ReLU(rectified linear unit):</strong> only keep the value when it’s greater than 0</p>
+<p><strong>softmax:</strong> simply set the largest probability to 1 and the rest to 0. What we should do then is to find 1.           </p>
+<p>Other: tanh, Sigmoid, </p>
+<img src="/Users/StillLoveYou/Library/Application Support/typora-user-images/image-20210128033854683.png" alt="image-20210128033854683" style="zoom:25%;" />
+
+<h4 id="Muti-Layer-Percetion-MLP"><a href="#Muti-Layer-Percetion-MLP" class="headerlink" title="Muti-Layer Percetion(MLP)"></a><strong>Muti-Layer Percetion(MLP)</strong></h4><p>Add hidden layer to solve non-linear problems, it is the main concept of Neural network.</p>
 
         
     </section>
@@ -167,24 +212,6 @@
 
 
 
-<div class="comments">
-    <div id="comments"></div>
-    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-    <script>
-    new Gitalk({
-        clientID: "7fbe80427f54741e289f",
-        clientSecret: "f34ed5fd92e54c9000bd37ba951948cb939deff5",
-        repo: "sanonz.github.io",
-        owner: "sanonz",
-        admin: ["sanonz"],
-        id: "c2a5ed7a917497cfd0e57052a6474a99",
-        distractionFreeMode: true,
-        title: "我的第一篇博客文章",
-        body: "http://medicinely.com/post/Tags.html",
-        labels: []
-    }).render('comments');
-    </script>
-</div>
 
 
 

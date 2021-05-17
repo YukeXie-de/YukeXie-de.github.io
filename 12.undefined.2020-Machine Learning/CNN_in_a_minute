@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+
+    
+
+    
+
+    <title>CNN in a minute | Yuke Xie</title>
+    <meta name="author" content="Yuke Xie" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="CNN in a minuteMachine learningYou get a set of data that has patterns inherent in it, and we a label to tell computer what those data is. And we have a computer figure out the patterns that match them to each other with the label. Then, my computer " />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+
+    
+    <link rel="alternate" href="/atom.xml" title="Yuke Xie" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/images/avatar_0.png">
+    
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'icomoon';
+        src: url("/fonts/icomoon.eot?q628ml");
+        src: url("/fonts/icomoon.eot?q628ml#iefix") format('embedded-opentype'),
+             url("/fonts/icomoon.ttf?q628ml") format('truetype'),
+             url("/fonts/icomoon.woff?q628ml") format('woff'),
+             url("/fonts/icomoon.svg?q628ml#icomoon") format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    </style>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!--[if lt IE 9]><style type="text/css">.nav-inner {top:0;}.author-meta {position:static;top:0;}.search-form {height:36px;}</style><script type="text/javascript" src="https://unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body>
+
+    <main class="app">
+        <header id="header" class="header clearfix">
+    <div id="nav" class="nav">
+    <div class="nav-mobile">
+        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
+        <h1 class="nav-mobile-title nav-mobile-item">Yuke Xie</h1>
+        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
+    </div>
+
+    <nav id="nav-inner" class="nav-inner">
+        
+            <a class="nav-item" href="/">
+                <span class="nav-text">Home</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/machine-learning/">
+                <span class="nav-text">ML</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/geodesy/">
+                <span class="nav-text">Geo</span>
+            </a>
+        
+            <a class="nav-item" href="/archives">
+                <span class="nav-text">Posts</span>
+            </a>
+        
+            <a class="nav-item" href="/tags">
+                <span class="nav-text">Tags</span>
+            </a>
+        
+            <a class="nav-item" href="/about">
+                <span class="nav-text">About</span>
+            </a>
+        
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="http://medicinely.com"></form>
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CNN-in-a-minute"><span class="toc-number">1.</span> <span class="toc-text">CNN in a minute</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Machine-learning"><span class="toc-number">1.1.</span> <span class="toc-text">Machine learning</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Neural-network"><span class="toc-number">1.2.</span> <span class="toc-text">Neural network</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Convolutional-neural-network"><span class="toc-number">1.3.</span> <span class="toc-text">Convolutional neural network</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Convolutional-layer"><span class="toc-number">1.3.0.1.</span> <span class="toc-text">Convolutional layer</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Terms"><span class="toc-number">1.4.</span> <span class="toc-text">Terms</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Pooling"><span class="toc-number">1.4.0.1.</span> <span class="toc-text">Pooling</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Loss"><span class="toc-number">1.4.0.2.</span> <span class="toc-text">Loss</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Optimizer"><span class="toc-number">1.4.0.3.</span> <span class="toc-text">Optimizer</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Activation-function-dense-layer"><span class="toc-number">1.4.0.4.</span> <span class="toc-text">Activation function (dense layer)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Muti-Layer-Percetion-MLP"><span class="toc-number">1.4.0.5.</span> <span class="toc-text">Muti-Layer Percetion(MLP)</span></a></li></ol></li></ol></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content">
+            <div id="wrapper" class="wrapper" style="max-width: 800px">
+                <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            CNN in a minute
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://medicinely.com/12.undefined.2020-Machine%20Learning/CNN_in_a_minute">
+    
+    <i class="icon-calendar vm"></i>
+    
+    <time class="vm" datetime="2020-10-12T08:14:38.000Z" itemprop="datePublished">12.10.2020</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag vm"></i>
+    <a class="article-tag-link" href="/tags/Machine-Learning/" rel="tag">Machine Learning</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h1 id="CNN-in-a-minute"><a href="#CNN-in-a-minute" class="headerlink" title="CNN in a minute"></a>CNN in a minute</h1><h2 id="Machine-learning"><a href="#Machine-learning" class="headerlink" title="Machine learning"></a>Machine learning</h2><p>You get a set of data that has patterns inherent in it, and we a label to tell computer what those data is. And we have a computer figure out the patterns that match them to each other with the label. Then, my computer will have learned to recognize the data .</p>
+<h2 id="Neural-network"><a href="#Neural-network" class="headerlink" title="Neural network"></a>Neural network</h2><p>The aim of neural network is to figure out the function f with [128] parameters between input image[28x28] and output class[9]</p>
+<img src="https://tva1.sinaimg.cn/large/008i3skNgy1gqlal8t1fcj31mc0rq14t.jpg" alt="image-20210128032540226" style="zoom: 33%;" />
+
+<p>Set up a model with: input[28x28], parameters[128], output[10]:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">model = keras.Sequential([</span><br><span class="line">    keras.layers.Flatten(input_shape=(<span class="number">28</span>, <span class="number">28</span>)),</span><br><span class="line">    keras.layers.Dense(<span class="number">128</span>, activation=<span class="string">&#x27;relu&#x27;</span>),</span><br><span class="line">    keras.layers.Dense(<span class="number">10</span>, activation=<span class="string">&#x27;softmax&#x27;</span>)</span><br><span class="line">])</span><br></pre></td></tr></table></figure>
+
+<p>Set the loss function and optimizer function for our model. The loss function will evaluate the model, and optimizer will generate new parameters for function to see if it can do better:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">model.compile(optimizer=<span class="string">&#x27;adam&#x27;</span>,</span><br><span class="line">              loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=<span class="literal">True</span>),</span><br><span class="line">              metrics=[<span class="string">&#x27;accuracy&#x27;</span>])</span><br></pre></td></tr></table></figure>
+
+<p>So simply start training and evaluating:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">model.fit(train_images, train_labels, epochs=<span class="number">5</span>)</span><br><span class="line">test_loss, test_acc = model.evaluate(test_images, test_labels)</span><br><span class="line">prediction = model.predict(my_images)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Convolutional-neural-network"><a href="#Convolutional-neural-network" class="headerlink" title="Convolutional neural network"></a>Convolutional neural network</h2><p>Normal network is boring because it contains the only one feature in the centered of a image. So we carry out the Convolutional neural network.</p>
+<p>CNN is a method which filter the images before training the deep neural network. So, features within the images could then come to the forefront and you would then spot those features to identify something.</p>
+<img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn35dorpblj31vi0u04qp.jpg" alt="image-20210128022300953" style="zoom:33%;" />
+
+<p>For example:</p>
+<p>This filter will remove everything except vertical lines</p>
+<img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn1nd3o45fj31eg0ha1eg.jpg" alt="image-20210126191401730" style="zoom: 33%;" />
+
+<p>This filter removes almost everything except the horizontal lines</p>
+<img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn1nf2h0r8j31f00gs4k6.jpg" alt="image-20210126191602879" style="zoom:33%;" />
+
+<p>This carry out pooling.</p>
+<h4 id="Convolutional-layer"><a href="#Convolutional-layer" class="headerlink" title="Convolutional layer"></a>Convolutional layer</h4><p>Our image is fed into the convolutional layer, and we set a number of randomly initialized convolutional kernals(filters) will pass over the image. We can stack convolutional layers on top of each other, and try to learn from very abstract features (*the magic of CNN is the network learns the best filter during training).</p>
+<p>And the output of convolution will be fed into the next layer. In each epoch, it will figure out which filters gave the best signals to help match the images to their labels. This process is called feature extraction.</p>
+<p>We have a flattened input that’s fed into a dense layer that in turn fed into the final dense layer that is our output.</p>
+<h2 id="Terms"><a href="#Terms" class="headerlink" title="Terms"></a>Terms</h2><h4 id="Pooling"><a href="#Pooling" class="headerlink" title="Pooling"></a>Pooling</h4><p>Pooling is a way to subsample the image, in order to compress the image and enhance the features.</p>
+<p>Most common method: Max Pooling (2x2)</p>
+<img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gn1nkxlhmvj30ic0aiaat.jpg" alt="image-20210126192143411" style="zoom:50%;" />
+
+<h4 id="Loss"><a href="#Loss" class="headerlink" title="Loss"></a>Loss</h4><p>A function to calculate how good the guess is.</p>
+<h4 id="Optimizer"><a href="#Optimizer" class="headerlink" title="Optimizer"></a>Optimizer</h4><p>To generate new parameters for the function between input image and output class. The combination of Loss and Optimizer will slowly get us closer to the prediction.</p>
+<h4 id="Activation-function-dense-layer"><a href="#Activation-function-dense-layer" class="headerlink" title="Activation function (dense layer)"></a>Activation function (dense layer)</h4><p><strong>ReLU(rectified linear unit):</strong> only keep the value when it’s greater than 0</p>
+<p><strong>softmax:</strong> simply set the largest probability to 1 and the rest to 0. What we should do then is to find 1.           </p>
+<p>Other: tanh, Sigmoid, </p>
+<img src="/Users/StillLoveYou/Library/Application Support/typora-user-images/image-20210128033854683.png" alt="image-20210128033854683" style="zoom:25%;" />
+
+<h4 id="Muti-Layer-Percetion-MLP"><a href="#Muti-Layer-Percetion-MLP" class="headerlink" title="Muti-Layer Percetion(MLP)"></a><strong>Muti-Layer Percetion(MLP)</strong></h4><p>Add hidden layer to solve non-linear problems, it is the main concept of Neural network.</p>
+
+        
+    </section>
+</article>
+
+
+
+<a id="pagenext" href="/12.undefined.2020-Machine%20Learning/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0" class="article-next" title="Êú∫Âô®Â≠¶‰π†Á¨îËÆ∞"><i class="icon-arrow-right"></i></a>
+
+
+<a id="pageprev" href="/31.undefined.2021-README" class="article-prev" title=""><i class="icon-arrow-left"></i></a>
+
+
+
+<div class="comments">
+    <div id="comments"></div>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+    new Gitalk({
+        clientID: "7fbe80427f54741e289f",
+        clientSecret: "f34ed5fd92e54c9000bd37ba951948cb939deff5",
+        repo: "sanonz.github.io",
+        owner: "sanonz",
+        admin: ["sanonz"],
+        id: "33e0a4c38fa0d09980220c793df17429",
+        distractionFreeMode: true,
+        title: "CNN in a minute",
+        body: "http://medicinely.com/12.undefined.2020-Machine%20Learning/CNN_in_a_minute",
+        labels: ["Machine Learning"]
+    }).render('comments');
+    </script>
+</div>
+
+
+
+            </div>
+        </div>
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+
+    
+</footer>
+
+    </main>
+
+    <script type="text/javascript" src="https://unpkg.com/jquery@1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nodes = {
+            nav: $('#nav'),
+            aside: $('#aside'),
+            asideInner: $('#aside-inner'),
+            navInner: $('#nav-inner')
+        };
+
+        var doing = false;
+        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
+            if (nodes.aside.hasClass('mobile-open')) {
+                nodes.aside.removeClass('mobile-open');
+            } else {
+                nodes.aside.removeClass('mobile-close panel-show');
+            }
+            doing = false;
+        });
+        $('#open-panel, #aside-mask').on('click', function() {
+            if (doing) {
+                return;
+            }
+
+            if (nodes.aside.hasClass('panel-show')) {
+                nodes.aside.addClass('mobile-close');
+            } else {
+                nodes.aside.addClass('mobile-open panel-show');
+            }
+        });
+        $('#open-menus').on('click', function() {
+            nodes.navInner.slideToggle('normal', slideDone);
+        });
+
+        if (window.innerWidth <= 960) {
+            setTimeout(function() {
+                nodes.navInner.slideUp('normal', slideDone);
+            }, 3000);
+        }
+
+        function slideDone() {
+            if (nodes.navInner.css('display') !== 'none') {
+                nodes.navInner.css('display', '');
+            }
+        }
+
+        $(window).on('resize', function() {
+            if ($(this).width() > 960) {
+                nodes.navInner.css('display', '');
+            }
+        });
+    });
+    </script>
+    
+        
+<script src="/js/scrollspy.min.js"></script>
+
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+
+        $(window).on('resize', function() {
+            var hw = $('#header').width();
+            var ww = $('#wrapper').width();
+            var space = ($(this).width() - hw - ww) / 2 / 2;
+
+            var pageprev = $('#pageprev');
+            var pagenext = $('#pagenext');
+            var avg = (pageprev.width() + pagenext.width()) / 2
+
+            if(space > avg) {
+                var len = space - avg / 2;
+                var styles = {position: 'fixed', top: '50%', marginTop: - (pageprev.width() + pagenext.width()) / 4}
+                pageprev.css($.extend({left: hw + len}, styles));
+                pagenext.css($.extend({right: len}, styles));
+            } else {
+                pageprev.removeAttr('style');
+                pagenext.removeAttr('style');
+            }
+        }).trigger('resize');
+        </script>
+    
+
+</body>
+</html>
