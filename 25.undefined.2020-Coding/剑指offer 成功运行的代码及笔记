@@ -1,257 +1,477 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://tva1.sinaimg.cn/large/008i3skNgy1gqlemu03o1j30ou0ou4p7.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://tva1.sinaimg.cn/large/008i3skNgy1gqlemu03o1j30ou0ou4p7.jpg">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://tva1.sinaimg.cn/large/008i3skNgy1gqlemu03o1j30ou0ou4p7.jpg">
+  <link rel="mask-icon" href="https://tva1.sinaimg.cn/large/008i3skNgy1gqlemu03o1j30ou0ou4p7.jpg" color="#222">
 
-    
-
-    
-
-    <title>机器学习笔记 | Yuke Xie</title>
-    <meta name="author" content="Yuke Xie" />
-    <meta name="keywords" content="" />
-    <meta name="description" content="剑指offer数据结构题目笔记5-用两个栈实现队列123456789101112131415161718# -*- coding:utf-8 -*-class Solution:    def __init__(self):        self.acceptStack = [] #创建空接受栈        self.outputStack = [] #创建空输出栈    def push(self, node): #输入        self.acceptStack.append(nod" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
-
-    
-    <link rel="alternate" href="/atom.xml" title="Yuke Xie" type="application/atom+xml">
-    
-    
-    <link rel="icon" href="https://tva1.sinaimg.cn/large/008i3skNgy1gqlemu03o1j30ou0ou4p7.jpg">
-    
-
-    <style type="text/css">
-    @font-face {
-        font-family: 'icomoon';
-        src: url("/fonts/icomoon.eot?q628ml");
-        src: url("/fonts/icomoon.eot?q628ml#iefix") format('embedded-opentype'),
-             url("/fonts/icomoon.ttf?q628ml") format('truetype'),
-             url("/fonts/icomoon.woff?q628ml") format('woff'),
-             url("/fonts/icomoon.svg?q628ml#icomoon") format('svg');
-        font-weight: normal;
-        font-style: normal;
-    }
-    </style>
-    
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/main.css">
 
 
-    <!--[if lt IE 9]><style type="text/css">.nav-inner {top:0;}.author-meta {position:static;top:0;}.search-form {height:36px;}</style><script type="text/javascript" src="https://unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
-<meta name="generator" content="Hexo 5.2.0"></head>
-<body>
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
-    <main class="app">
-        <header id="header" class="header clearfix">
-    <div id="nav" class="nav">
-    <div class="nav-mobile">
-        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
-        <h1 class="nav-mobile-title nav-mobile-item">Yuke Xie</h1>
-        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"medicinely.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="剑指offer数据结构题目笔记5-用两个栈实现队列123456789101112131415161718# -*- coding:utf-8 -*-class Solution:    def __init__(self):        self.acceptStack &#x3D; [] #创建空接受栈        self.outputStack &#x3D; [] #创建空输出栈    def push(s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习笔记">
+<meta property="og:url" content="http://medicinely.com/25.undefined.2020-Coding/%E5%89%91%E6%8C%87offer%20%E6%88%90%E5%8A%9F%E8%BF%90%E8%A1%8C%E7%9A%84%E4%BB%A3%E7%A0%81%E5%8F%8A%E7%AC%94%E8%AE%B0">
+<meta property="og:site_name" content="medicinely">
+<meta property="og:description" content="剑指offer数据结构题目笔记5-用两个栈实现队列123456789101112131415161718# -*- coding:utf-8 -*-class Solution:    def __init__(self):        self.acceptStack &#x3D; [] #创建空接受栈        self.outputStack &#x3D; [] #创建空输出栈    def push(s">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-09-25T08:14:38.000Z">
+<meta property="article:modified_time" content="2020-10-12T11:14:42.192Z">
+<meta property="article:author" content="Yuke Xie">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://medicinely.com/25.undefined.2020-Coding/%E5%89%91%E6%8C%87offer%20%E6%88%90%E5%8A%9F%E8%BF%90%E8%A1%8C%E7%9A%84%E4%BB%A3%E7%A0%81%E5%8F%8A%E7%AC%94%E8%AE%B0">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>机器学习笔记 | medicinely</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
     </div>
+  </div>
 
-    <nav id="nav-inner" class="nav-inner">
-        
-            <a class="nav-item" href="/">
-                <span class="nav-text">Home</span>
-            </a>
-        
-            <a class="nav-item" href="/categories/machine-learning/">
-                <span class="nav-text">ML</span>
-            </a>
-        
-            <a class="nav-item" href="/categories/geodesy/">
-                <span class="nav-text">Geo</span>
-            </a>
-        
-            <a class="nav-item" href="/archives">
-                <span class="nav-text">Posts</span>
-            </a>
-        
-            <a class="nav-item" href="/tags">
-                <span class="nav-text">Tags</span>
-            </a>
-        
-            <a class="nav-item" href="/about">
-                <span class="nav-text">About</span>
-            </a>
-        
-    </nav>
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">medicinely</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Geoscience Student, University of Stuttgart</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
 </div>
 
-    <aside id="aside" class="aside">
-    <div id="aside-mask" class="aside-mask"></div>
-    <div id="aside-inner" class="aside-inner">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="http://medicinely.com"></form>
 
-        
-        
-        
-        
 
-        
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%91%E6%8C%87offer%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%A2%98%E7%9B%AE%E7%AC%94%E8%AE%B0"><span class="toc-number">1.</span> <span class="toc-text">剑指offer数据结构题目笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97"><span class="toc-number">1.1.</span> <span class="toc-text">5-用两个栈实现队列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97"><span class="toc-number">1.2.</span> <span class="toc-text">6-旋转数组的最小数字</span></a></li></ol></li></ol>
-        
-    </div>
-</aside>
 
-</header>
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
 
-        <div id="content" class="content">
-            <div id="wrapper" class="wrapper" style="max-width: 800px">
-                <article class="article" itemscope itemprop="blogPost">
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">2</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">1</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">7</span></a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
     
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            机器学习笔记
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://medicinely.com/25.undefined.2020-Coding/%E5%89%91%E6%8C%87offer%20%E6%88%90%E5%8A%9F%E8%BF%90%E8%A1%8C%E7%9A%84%E4%BB%A3%E7%A0%81%E5%8F%8A%E7%AC%94%E8%AE%B0">
-    
-    <i class="icon-calendar vm"></i>
-    
-    <time class="vm" datetime="2020-09-25T08:14:38.000Z" itemprop="datePublished">25.09.2020</time>
-</a>
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
             
 
-        </div>
-    </header>
     
-    <section class="article-body markdown-body">
-        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://medicinely.com/25.undefined.2020-Coding/%E5%89%91%E6%8C%87offer%20%E6%88%90%E5%8A%9F%E8%BF%90%E8%A1%8C%E7%9A%84%E4%BB%A3%E7%A0%81%E5%8F%8A%E7%AC%94%E8%AE%B0">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://tva1.sinaimg.cn/large/008i3skNgy1gqleml5w3vj30q30q34m6.jpg">
+      <meta itemprop="name" content="Yuke Xie">
+      <meta itemprop="description" content="Geoscience Student, University of Stuttgart">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="medicinely">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          机器学习笔记
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 25.09.2020 10:14:38" itemprop="dateCreated datePublished" datetime="2020-09-25T10:14:38+02:00">25.09.2020</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 12.10.2020 13:14:42" itemprop="dateModified" datetime="2020-10-12T13:14:42+02:00">12.10.2020</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
         <h1 id="剑指offer数据结构题目笔记"><a href="#剑指offer数据结构题目笔记" class="headerlink" title="剑指offer数据结构题目笔记"></a>剑指offer数据结构题目笔记</h1><h2 id="5-用两个栈实现队列"><a href="#5-用两个栈实现队列" class="headerlink" title="5-用两个栈实现队列"></a>5-用两个栈实现队列</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.acceptStack = [] <span class="comment">#创建空接受栈</span></span><br><span class="line">        self.outputStack = [] <span class="comment">#创建空输出栈</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">push</span>(<span class="params">self, node</span>):</span> <span class="comment">#输入</span></span><br><span class="line">        self.acceptStack.append(node) <span class="comment">#将元素存入接受栈</span></span><br><span class="line">        <span class="comment"># write code here</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pop</span>(<span class="params">self</span>):</span> <span class="comment">#弹出</span></span><br><span class="line">        <span class="keyword">if</span> self.outputStack == []: <span class="comment">#如果输出栈是空</span></span><br><span class="line">            <span class="keyword">while</span> self.acceptStack: <span class="comment">#只要接收栈不是空</span></span><br><span class="line">                self.outputStack.append(self.acceptStack.pop())<span class="comment">#就一直弹出接受栈的内容到输出栈</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> self.outputStack !=[]:  <span class="comment">#如果输出栈不空</span></span><br><span class="line">            <span class="keyword">return</span> self.outputStack.pop() <span class="comment">#则返回输出栈弹出的结果</span></span><br><span class="line">        <span class="keyword">else</span>: <span class="comment">#如果输出栈空</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span> <span class="comment">#不返回</span></span><br><span class="line">        <span class="comment"># return xx</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="6-旋转数组的最小数字"><a href="#6-旋转数组的最小数字" class="headerlink" title="6-旋转数组的最小数字"></a>6-旋转数组的最小数字</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 二分查找法</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bSearch</span>(<span class="params">array, target</span>):</span></span><br><span class="line"></span><br><span class="line">    left = <span class="number">0</span> <span class="comment"># 左指针</span></span><br><span class="line">    right = len(array) - <span class="number">1</span> <span class="comment"># 右指针</span></span><br><span class="line">    <span class="keyword">while</span> left &lt;= right:</span><br><span class="line">        <span class="comment"># 101 = 5 =&gt; 10 =2</span></span><br><span class="line">        <span class="comment"># 1100 = 12 =&gt; 110 = 6</span></span><br><span class="line">        mid = (left + right) // <span class="number">2</span> <span class="comment"># 向取整数（弱智方法）</span></span><br><span class="line">        <span class="comment">#mid = (left + right) &gt;&gt; 1 # 移位（除2取整数）</span></span><br><span class="line">        <span class="keyword">if</span> array[mid] == target:</span><br><span class="line">            <span class="keyword">return</span> mid</span><br><span class="line">        <span class="keyword">elif</span> array[mid] &lt; target:</span><br><span class="line">            left = mid + <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            right = mid - <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    ret = bSearch([<span class="number">1</span> ,<span class="number">2</span> ,<span class="number">3</span> ,<span class="number">4</span> ,<span class="number">5</span> ,<span class="number">6</span> ,<span class="number">7</span> ,<span class="number">8</span> ,<span class="number">9</span> ,<span class="number">10</span>], <span class="number">1</span>)</span><br><span class="line">    print(ret)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
-        
-    </section>
-</article>
-
-
-
-<a id="pagenext" href="/21.undefined.2020-Coding/markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95" class="article-next" title="markdown基本语法"><i class="icon-arrow-right"></i></a>
-
-
-<a id="pageprev" href="/12.undefined.2020-Machine%20Learning/CNN_in_a_minute" class="article-prev" title="CNN in a minute"><i class="icon-arrow-left"></i></a>
-
-
-
-<div class="comments">
-    <div id="comments"></div>
-    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-    <script>
-    new Gitalk({
-        clientID: "7fbe80427f54741e289f",
-        clientSecret: "f34ed5fd92e54c9000bd37ba951948cb939deff5",
-        repo: "medicinely.github.io",
-        owner: "medicinely",
-        admin: ["medicinely"],
-        id: "726dc883be409f7ec7a53e0b3361bcfe",
-        distractionFreeMode: true,
-        title: "机器学习笔记",
-        body: "http://medicinely.com/25.undefined.2020-Coding/%E5%89%91%E6%8C%87offer%20%E6%88%90%E5%8A%9F%E8%BF%90%E8%A1%8C%E7%9A%84%E4%BB%A3%E7%A0%81%E5%8F%8A%E7%AC%94%E8%AE%B0",
-        labels: []
-    }).render('comments');
-    </script>
-</div>
-
-
-
-            </div>
-        </div>
-        <footer class="footer">
-    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+    </div>
 
     
-</footer>
+    
+    
+        
 
+  <div class="followme">
+    <p>Welcome to my other publishing channels</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://twitter.com/herrrrryork">
+            <span class="icon">
+              <i class="fab fa-twitter"></i>
+            </span>
+
+            <span class="label">Twitter</span>
+          </a>
+        </div>
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="https://www.instagram.com/herrrrryork/">
+            <span class="icon">
+              <i class="fab fa-instagram"></i>
+            </span>
+
+            <span class="label">Instagram</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/21.undefined.2020-Coding/markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95" rel="prev" title="markdown基本语法">
+      <i class="fa fa-chevron-left"></i> markdown基本语法
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/12.undefined.2020-Machine%20Learning/CNN_in_a_minute" rel="next" title="CNN in a minute">
+      CNN in a minute <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%91%E6%8C%87offer%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%A2%98%E7%9B%AE%E7%AC%94%E8%AE%B0"><span class="nav-number">1.</span> <span class="nav-text">剑指offer数据结构题目笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97"><span class="nav-number">1.1.</span> <span class="nav-text">5-用两个栈实现队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97"><span class="nav-number">1.2.</span> <span class="nav-text">6-旋转数组的最小数字</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Yuke Xie"
+      src="https://tva1.sinaimg.cn/large/008i3skNgy1gqleml5w3vj30q30q34m6.jpg">
+  <p class="site-author-name" itemprop="name">Yuke Xie</p>
+  <div class="site-description" itemprop="description">Geoscience Student, University of Stuttgart</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="sidebar-button motion-element"><i class="fa fa-comment"></i>
+    Contact
+  </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/medicinely" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;medicinely" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.instagram.com/herrrrryork/" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;herrrrryork&#x2F;" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/yuke-xie-b042251b0/" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;yuke-xie-b042251b0&#x2F;" rel="noopener" target="_blank"><i class="fab fa-linkedin fa-fw"></i></a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
     </main>
 
-    <script type="text/javascript" src="https://unpkg.com/jquery@1.9.1/jquery.min.js"></script>
-    <script type="text/javascript">
-    $(function() {
-        var nodes = {
-            nav: $('#nav'),
-            aside: $('#aside'),
-            asideInner: $('#aside-inner'),
-            navInner: $('#nav-inner')
-        };
-
-        var doing = false;
-        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
-            if (nodes.aside.hasClass('mobile-open')) {
-                nodes.aside.removeClass('mobile-open');
-            } else {
-                nodes.aside.removeClass('mobile-close panel-show');
-            }
-            doing = false;
-        });
-        $('#open-panel, #aside-mask').on('click', function() {
-            if (doing) {
-                return;
-            }
-
-            if (nodes.aside.hasClass('panel-show')) {
-                nodes.aside.addClass('mobile-close');
-            } else {
-                nodes.aside.addClass('mobile-open panel-show');
-            }
-        });
-        $('#open-menus').on('click', function() {
-            nodes.navInner.slideToggle('normal', slideDone);
-        });
-
-        if (window.innerWidth <= 960) {
-            setTimeout(function() {
-                nodes.navInner.slideUp('normal', slideDone);
-            }, 3000);
-        }
-
-        function slideDone() {
-            if (nodes.navInner.css('display') !== 'none') {
-                nodes.navInner.css('display', '');
-            }
-        }
-
-        $(window).on('resize', function() {
-            if ($(this).width() > 960) {
-                nodes.navInner.css('display', '');
-            }
-        });
-    });
-    </script>
-    
+    <footer class="footer">
+      <div class="footer-inner">
         
-<script src="/js/scrollspy.min.js"></script>
 
-        <script type="text/javascript">
-        $(document.body).scrollspy({target: '#aside-inner'});
+        
 
-        $(window).on('resize', function() {
-            var hw = $('#header').width();
-            var ww = $('#wrapper').width();
-            var space = ($(this).width() - hw - ww) / 2 / 2;
+<div class="copyright">
+  
+  &copy; 2019 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-y-combinator"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yuke Xie</span>
+</div>
 
-            var pageprev = $('#pageprev');
-            var pagenext = $('#pagenext');
-            var avg = (pageprev.width() + pagenext.width()) / 2
+        
 
-            if(space > avg) {
-                var len = space - avg / 2;
-                var styles = {position: 'fixed', top: '50%', marginTop: - (pageprev.width() + pagenext.width()) / 4}
-                pageprev.css($.extend({left: hw + len}, styles));
-                pagenext.css($.extend({right: len}, styles));
-            } else {
-                pageprev.removeAttr('style');
-                pagenext.removeAttr('style');
-            }
-        }).trigger('resize');
-        </script>
-    
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'd911c8ec6619a4afe229',
+      clientSecret: '858107e9994c0e9f3155f41933d8c3bfc6ea8533',
+      repo        : 'gitalk_comment',
+      owner       : 'medicinely',
+      admin       : ['medicinely'],
+      id          : 'b12188aace0999dbc2c507f865af3044',
+        language: 'en',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
 
 </body>
 </html>
